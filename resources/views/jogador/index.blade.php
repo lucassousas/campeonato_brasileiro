@@ -8,7 +8,7 @@
 	<form method="POST" action="/jogador" class="row" enctype="multipart/form-data">
 		<div class="form-group col-6">
 			<label for="nome">Nome: </label>
-			<input type="text" id="nome" name="nome" class="form-control" value="{{ $clube->nome }}" required />
+			<input type="text" id="nome" name="nome" class="form-control" value="{{ $jogador->nome }}" required />
 		</div>
 		<div class="form-group col-6">
 			<label for="dataNasc">Data de nascimento: </label>
@@ -19,7 +19,7 @@
 			<select id="clube_id" name="clube_id" class="form-control" required>
 				<option value=""></option>
 				@foreach ($clubes as $clube) 
-					<option value="{{ $clube->id }}" @if ($clube->id == $jogador->clube_id) selected @endif>{{ $jogador->nome }}</option>
+					<option value="{{ $clube->id }}" @if ($clube->id == $jogador->clube_id) selected @endif>{{ $clube->nome }}</option>
 				@endforeach
 			</select>
 		</div>
@@ -28,7 +28,7 @@
 			<select id="posicao_jogador_id" name="posicao_jogador_id" class="form-control" required>
 				<option value=""></option>
 				@foreach ($jogadores as $jogador) 
-					<option value="{{ $jogador->id }}" @if ($jogador->id == $jogador->posicao_jogador_id) selected @endif>{{ $jogador->nome }}</option>
+					<option value="{{ $jogador->id }}" @if ($jogador->posicao_jogador_id == $posicao_jogador->id) selected @endif>{{ $posicao_jogador->posicao }}</option>
 				@endforeach
 			</select>
 		</div>

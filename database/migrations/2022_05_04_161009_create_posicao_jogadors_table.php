@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('posicao_jogador', function (Blueprint $table) {
             $table->id();
             $table->string("posicao", 15);
-            $table->string("descricao", 50);
+            $table->string("descricao", 100);
             $table->timestamps();
         });
     }
