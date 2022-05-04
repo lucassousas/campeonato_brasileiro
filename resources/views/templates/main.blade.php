@@ -21,7 +21,27 @@
 	</head>
 	<body>
 		<div class="container">
+			<nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+				<div class="navbar-nav">
+					<a class="nav-link" href="/jogador">Jogador</a>
+					<a class="nav-link" href="/clube">Clube</a>
+				</div>
+			</nav>
 			
+			@if (Session::get("status") == "salvo")
+				<div class="alert alert-success">
+					Salvo com sucesso!
+				</div>
+			@endif
+			
+			@if (Session::get("status") == "excluido")
+				<div class="alert alert-danger">
+					Excluído com sucesso!
+				</div>
+			@endif
+			
+			@yield("formulario")
+			@yield("tabela")
 		</div>
 	</body>
 </html>

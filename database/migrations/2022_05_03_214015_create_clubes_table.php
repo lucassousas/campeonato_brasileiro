@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('clube', function (Blueprint $table) {
             $table->id();
+            $table->string("nome", 100);
+            $table->string("escudo", 100)->nullable();
             $table->timestamps();
         });
     }
