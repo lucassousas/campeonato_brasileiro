@@ -15,12 +15,11 @@ use App\Http\Controllers\ClubeController;
 |
 */
 
+Route::Resources([
+    "jogador" => JogadorController::class,
+    "clube" => ClubeController::class
+]);
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get("/jogador", [JogadorController::class, "index"]);
-Route::post("/jogador", [JogadorController::class, "salvar"]);
-
-Route::get("/clube", [ClubeController::class, "index"]);
-Route::post("/clube", [ClubeController::class, "salvar"]);

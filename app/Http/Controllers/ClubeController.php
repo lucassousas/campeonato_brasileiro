@@ -45,6 +45,7 @@ class ClubeController extends Controller
             $clube = new Clube();
         }
         $clube->nome = $request->get("nome");
+        $clube->foto = $request->get("escudo");
         $clube->save();
         $request->session()->flash("status", "salvo");
         return redirect("/clube");

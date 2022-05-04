@@ -12,7 +12,7 @@ class JogadorController extends Controller
     public function listaJogadores(){
         return DB::table("jogador AS j")
             ->join("clube AS c", "j.clube_id", "=", "c.id")
-            ->selected("j.*", "c.nome AS clube")
+            ->select("j.*", "c.nome AS clube")
             ->get();
     }
 

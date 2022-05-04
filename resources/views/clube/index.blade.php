@@ -32,5 +32,64 @@
 	<br />
 
 	<h1>Lista de Clubes</h1>
-
+	<table class="table table-striped">
+		<colgroup>
+			<col width="300">
+			<col width="300">
+			<col width="100">
+			<col width="100">
+		</colgroup>
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Escudo</th>
+				<th>Editar</th>
+				<th>Excluir</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach ($clubes as $clube)
+				<tr>
+					<td>{{ $clube->nome }}</td>
+					<td>
+						@if ($clube->escudo != null)
+							<img src='{{ str_replace("public/", "storage/", $clube->foto) }}' width="100"></img>
+						@endif
+					</td>
+					<td>
+						<a href="/clube/{{ $clube->id }}/edit" class="btn btn-warning">
+							<i class="bi bi-pencil-square"></i> Editar
+						</a>
+					</td>
+					<td>
+						<form method="POST" action="/clube/{{ $clube->id }}">
+							@csrf
+							<input type="hidden" name="_method" value="DELETE" />
+							<button type="button" class="btn btn-danger" onclick="excluir(this);">
+								<i class="bi bi-trash"></i> Excluir
+							</button>
+						</form>
+					</td>
+				</tr>
+			@endforeach
+		</tbody>
+	</table>
 @endsection
+
+<script>
+	function excluir(btn) {
+		Swal.fire({
+			"title": "Deseja realmente excluir?",
+			"icon": "warning",
+			"showCancelButton": true,
+			"cancelButtonText": "Cancelar",
+			"confirmButtonText": "Confirmar",
+			"confirmButtonColor": "#3085d6",
+			"cancelButtonColor": "#d33"
+		}).then(function(result) {
+			if (result.isConfirmed) {
+				$(btn).parents("form").submit();
+			}
+		});
+	}
+</script>

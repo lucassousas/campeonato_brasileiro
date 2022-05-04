@@ -9,5 +9,5 @@ class PosicaoJogador extends Model
 {
     use HasFactory;
 
-    protected $table = "posicaoJogador"
+    protected $table = "posicaoJogador";
 }
