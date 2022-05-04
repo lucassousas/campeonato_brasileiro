@@ -52,9 +52,7 @@
 				<tr>
 					<td>{{ $clube->nome }}</td>
 					<td>
-						@if ($clube->escudo != null)
-							<img src='{{ str_replace("public/", "storage/", $clube->foto) }}' width="100"></img>
-						@endif
+						
 					</td>
 					<td>
 						<a href="/clube/{{ $clube->id }}/edit" class="btn btn-warning">
